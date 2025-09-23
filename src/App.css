@@ -269,8 +269,8 @@ footer a {
 /* Gallery Page */
 .gallery-container {
   width: 100%;
-  max-width: 75rem;
   margin: 0 auto;
+  max-width: 75rem;
 }
 
 .back-button {
