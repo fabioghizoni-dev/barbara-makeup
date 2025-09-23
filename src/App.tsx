@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Home from "./pages/Home";
 import Gallery from "./pages/Gallery";
+import Home from "./pages/Home";
+import Care from "./pages/Care";
 
 function AnimatedBackground() {
   return (
@@ -30,13 +31,12 @@ function App() {
       <AnimatedBackground />
       <div className={`App ${theme}`}>
         <div className="theme-switcher">
-          <button onClick={toggleTheme}>
-            {theme === "light" ? "🌙" : "☀️"}
-          </button>
+          <button onClick={toggleTheme}>{theme === "light" ? "🌙" : "☀️"}</button>
         </div>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/care" element={<Care />} />
         </Routes>
       </div>
     </>

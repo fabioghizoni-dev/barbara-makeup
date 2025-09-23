@@ -19,17 +19,33 @@ function Home() {
           Agendamentos e Orçamentos
         </a>
         <Link to="/gallery" className="link-button">
-          Portfólio
+          Jóias
         </Link>
-        <a href="#" target="_blank" rel="noopener noreferrer" className="link-button">
+        <Link to="/care" className="link-button">
           Cuidados Pós-Procedimento
-        </a>
+        </Link>
       </main>
       <footer>
         <p>
-          Feito com ♡ por{" "}
-          <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/fabio_ghizoni">
-            Fábio Henrique
+          By -{" "}
+          <a
+            role="link"
+            target="_blank"
+            className="link-insta"
+            rel="noopener noreferrer"
+            href="https://www.instagram.com/fabio_ghizoni"
+          >
+            Fábio Ghizoni
+          </a>
+          :{" "}
+          <a
+            role="link"
+            target="_blank"
+            className="link-insta"
+            rel="noopener noreferrer"
+            href="https://www.instagram.com/renew_diggital"
+          >
+            RENEW
           </a>
         </p>
       </footer>
