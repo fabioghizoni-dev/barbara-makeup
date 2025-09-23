@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import "../styles/Gallery.css";
 
 const images = [
   "img1.webp",

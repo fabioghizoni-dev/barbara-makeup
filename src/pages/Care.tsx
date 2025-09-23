@@ -1,4 +1,45 @@
 import { Link } from "react-router-dom";
+import "../styles/Care.css";
+
+// Componente reutilizável para cada seção de cuidados
+function CareSection({ title, items }: { title: string; items: string[] }) {
+  return (
+    <div className="care-section">
+      <h3>{title}</h3>
+      <ul role="list">
+        {items.map((item, index) => (
+          <li key={index} role="listitem">
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+// Dados dos cuidados
+const careData = {
+  bodyPiercing: {
+    title: "Body Piercing",
+    items: [
+      "Lave bem as mãos antes de tocar no piercing.",
+      "Limpe a área com soro fisiológico 0,9% duas vezes ao dia.",
+      "Não gire ou mova a joia desnecessariamente.",
+      "Evite piscinas, saunas e banhos de mar durante a cicatrização.",
+      "Não durma sobre o piercing.",
+      "Evite roupas apertadas que possam pressionar ou irritar a área.",
+    ],
+  },
+  makeup: {
+    title: "Maquiagem",
+    items: [
+      "Remova completamente a maquiagem antes de dormir.",
+      "Utilize um demaquilante de qualidade, adequado ao seu tipo de pele.",
+      "Lave o rosto com um sabonete facial suave após remover a maquiagem.",
+      "Hidrate bem a pele para mantê-la saudável e preparada para futuras aplicações.",
+    ],
+  },
+};
 
 function Care() {
   return (
@@ -7,26 +48,11 @@ function Care() {
         Voltar
       </Link>
       <h2>Cuidados Pós-Procedimento</h2>
-      <div className="care-section">
-        <h3>Body Piercing</h3>
-        <ul role="list">
-          <li role="listitem">Lave bem as mãos antes de tocar no piercing.</li>
-          <li role="listitem">Limpe a área com soro fisiológico 0,9% duas vezes ao dia.</li>
-          <li role="listitem">Não gire ou mova a joia desnecessariamente.</li>
-          <li role="listitem">Evite piscinas, saunas e banhos de mar durante a cicatrização.</li>
-          <li role="listitem">Não durma sobre o piercing.</li>
-          <li role="listitem">Evite roupas apertadas que possam pressionar ou irritar a área.</li>
-        </ul>
-      </div>
-      <div className="care-section">
-        <h3>Design de Sobrancelhas</h3>
-        <ul role="list">
-          <li role="listitem">Evite molhar as sobrancelhas nas primeiras 24 horas após o procedimento.</li>
-          <li role="listitem">Não utilize produtos com álcool na área das sobrancelhas.</li>
-          <li role="listitem">Evite coçar ou esfregar a região.</li>
-          <li role="listitem">Penteie as sobrancelhas diariamente com uma escovinha apropriada.</li>
-        </ul>
-      </div>
+      <CareSection
+        title={careData.bodyPiercing.title}
+        items={careData.bodyPiercing.items}
+      />
+      <CareSection title={careData.makeup.title} items={careData.makeup.items} />
     </div>
   );
 }

@@ -1,81 +1,78 @@
-# Bárbara Vitória - Link in Bio
+# Bárbara Vitória - Body Piercer & Maquiadora
 
-Este é um projeto de um site de "link na bio" para a maquiadora e body piercer Bárbara Vitória. O site apresenta seus links importantes, portfólio e informações de contato em um layout moderno e responsivo com temas claro e escuro.
+Este é o código-fonte do site de portfólio e agendamentos para Bárbara Vitória, especialista em Body Piercing e Maquiagem Profissional.
 
-## Visão Geral
+O site foi desenvolvido para ser uma plataforma rápida, responsiva e visualmente agradável, permitindo que os clientes conheçam o trabalho da profissional, acessem seus contatos e consultem informações importantes sobre os procedimentos.
 
-O projeto consiste em uma aplicação de página única (SPA) construída com React e Vite. Ele é projetado para ser visualmente atraente, com um fundo animado no tema escuro e transições suaves.
+**[Acesse o site aqui](https://barbara-makeup.vercel.app/)**
 
-## Estrutura de Pastas
+## ✨ Funcionalidades
+
+- **Design Responsivo**: Totalmente adaptável a qualquer dispositivo.
+- **Tema Light/Dark**: Dois temas visuais para a preferência do usuário.
+- **Fundo Animado**: Backgrounds animados e distintos para cada tema.
+- **Galeria de Imagens**: Uma galeria de trabalhos com visualização em tela cheia.
+- **Links Rápidos**: Acesso fácil para agendamentos e contato direto.
+- **Página de Cuidados**: Instruções claras sobre os cuidados pós-procedimento.
+- **SEO Otimizado**: Configurações de SEO para melhor rankeamento em motores de busca.
+
+## 🛠️ Tecnologias Utilizadas
+
+- **React**
+- **Vite**
+- **TypeScript**
+- **React Router**
+- **CSS** (com Variáveis, Flexbox e Grid)
+- **PNPM**
+
+## 📂 Estrutura do Projeto
 
 ```
 barbara-makeup/
 ├── public/
-│   ├── logo.svg
-│   └── rounded-logo.svg
 ├── src/
 │   ├── assets/
-│   │   ├── img1.JPG
-│   │   └── ... (outras imagens)
 │   ├── pages/
-│   │   ├── Gallery.tsx
-│   │   └── Home.tsx
-│   ├── App.css
+│   ├── styles/
 │   ├── App.tsx
-│   ├── index.css
 │   └── main.tsx
 ├── .gitignore
 ├── index.html
 ├── package.json
-├── README.md
 └── vite.config.ts
 ```
 
-- **`public/`**: Contém os arquivos estáticos, como as logos.
-- **`src/`**: Contém o código-fonte da aplicação.
-  - **`assets/`**: Armazena as imagens do portfólio.
-  - **`pages/`**: Contém os componentes de página (`Home` e `Gallery`).
-  - **`App.css`**: Estilos principais da aplicação.
-  - **`App.tsx`**: Componente raiz que gerencia as rotas e o tema.
-  - **`index.css`**: Estilos globais (atualmente limpo).
-  - **`main.tsx`**: Ponto de entrada da aplicação React.
+## 🚀 Como Rodar o Projeto Localmente
 
-## Como Rodar o Projeto
+Para executar este projeto em sua máquina local, siga os passos abaixo.
 
 ### Pré-requisitos
 
-- Node.js (versão 18 ou superior)
-- pnpm (ou npm/yarn)
+- [Node.js](https://nodejs.org/en/) (versão 18 ou superior)
+- [pnpm](https://pnpm.io/installation)
 
-### Instalação
+### Passos
 
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/seu-usuario/barbara-makeup.git
-   ```
-2. Navegue até o diretório do projeto:
-   ```bash
-   cd barbara-makeup
-   ```
-3. Instale as dependências:
-   ```bash
-   pnpm install
-   ```
+1.  **Clone o repositório:**
+    ```bash
+    git clone https://github.com/seu-usuario/barbara-makeup.git
+    cd barbara-makeup
+    ```
 
-### Execução
+2.  **Instale as dependências:**
+    ```bash
+    pnpm install
+    ```
 
-Para iniciar o servidor de desenvolvimento, execute:
+3.  **Inicie o servidor de desenvolvimento:**
+    ```bash
+    pnpm dev
+    ```
 
-```bash
-pnpm dev
-```
+O site estará disponível em `http://localhost:5173` (ou a porta indicada no terminal).
 
-Abra [http://localhost:5173](http://localhost:5173) no seu navegador para ver a aplicação.
+## Scripts Disponíveis
 
-## Tecnologias Utilizadas
-
-- **React**: Biblioteca para construir a interface de usuário.
-- **Vite**: Ferramenta de build para desenvolvimento front-end.
-- **React Router**: Para gerenciamento de rotas.
-- **TypeScript**: Superset de JavaScript que adiciona tipagem estática.
-- **CSS**: Para estilização, com variáveis CSS para temas.
+- `pnpm dev`: Inicia o servidor de desenvolvimento.
+- `pnpm build`: Compila o projeto para produção.
+- `pnpm preview`: Inicia um servidor local para visualizar a build de produção.

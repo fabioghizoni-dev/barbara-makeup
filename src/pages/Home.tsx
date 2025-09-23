@@ -8,7 +8,7 @@ function Home() {
       <header>
         <img src={logo} className="logo" alt="logo" />
         <h1>Bárbara Vitória</h1>
-        <p>Body Piercer & Designer de Sobrancelhas</p>
+        <p>Body Piercer & Maquiadora</p>
       </header>
       <main>
         <a

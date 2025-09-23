@@ -20,8 +20,8 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   min-height: 100vh;
   transition: background-color 0.5s, color 0.5s;
   overflow-x: hidden;
@@ -29,7 +29,7 @@ body {
 
 body.light {
   color: var(--text-light);
-  background-color: var(--background-light);
+  background: linear-gradient(to bottom, #87ceeb, #f0f8ff);
 }
 
 body.dark {
@@ -54,13 +54,15 @@ body.dark {
   width: 100%;
   height: 100%;
   z-index: -1;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.8s ease-in-out;
   opacity: 0;
 }
 
-.dark .background-container {
+.dark .dark-theme,
+.light .light-theme {
   opacity: 1;
 }
+
 .stars {
   background: black url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
   position: absolute;
@@ -85,10 +87,23 @@ body.dark {
   animation: move-background 70s linear infinite;
 }
 
-.clouds {
+.sun {
+  position: absolute;
+  top: -9.375rem;
+  left: -9.375rem;
+  width: 18.75rem;
+  height: 18.75rem;
+  background-color: #ffdd00;
+  border-radius: 50%;
+  box-shadow: 0 0 5rem #ffdd00, 0 0 10rem #ffdd00, 0 0 15rem #fff700;
+  z-index: 0;
+}
+
+.dark-theme .clouds {
   width: 625rem;
   height: 100%;
-  background: transparent url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png) repeat;
+  background: transparent
+    url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png) repeat;
   background-size: 62.5rem 62.5rem;
   position: absolute;
   right: 0;
@@ -96,6 +111,21 @@ body.dark {
   bottom: 0;
   z-index: 2;
   animation: move-background 150s linear infinite;
+}
+
+.light-theme .clouds {
+  width: 625rem;
+  height: 100%;
+  background: transparent
+    url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png) repeat;
+  background-size: 62.5rem 62.5rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  animation: move-background 150s linear infinite;
+  filter: invert(1) brightness(1.2);
 }
 
 .App {
@@ -118,11 +148,27 @@ body.dark {
   background-color: var(--card-background-dark);
 }
 
+/* Override for the gallery page to be full-width */
+.App.gallery-page {
+  max-width: 100rem;
+  padding: 2rem;
+  border: none;
+  backdrop-filter: none;
+  background-color: transparent;
+  margin: 0 auto;
+}
+
 .theme-switcher {
   position: absolute;
   top: 1.25rem;
   right: 1.25rem;
   z-index: 10;
+}
+
+.gallery-page .theme-switcher {
+  top: 2rem;
+  right: 2rem;
+  z-index: 1001;
 }
 
 .theme-switcher button {
@@ -171,8 +217,8 @@ p {
 
 main {
   display: flex;
-  flex-direction: column;
   gap: 0.9375rem;
+  flex-direction: column;
 }
 
 .link-button {
@@ -266,204 +312,14 @@ footer a {
   color: inherit;
 }
 
-/* Gallery Page */
-.gallery-container {
-  width: 100%;
-  margin: 0 auto;
-  max-width: 75rem;
-}
-
-.back-button {
-  display: inline-block;
-  margin-bottom: 1.25rem;
-  text-decoration: none;
-  font-weight: 500;
-  transition: transform 0.3s ease, color 0.3s ease;
-  position: relative;
-  padding-left: 1.5625rem;
-}
-
-.back-button::before {
-  content: "←";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: transform 0.3s ease;
-}
-
-.light .back-button {
-  color: var(--text-light);
-}
-.dark .back-button {
-  color: var(--text-dark);
-}
-
-.back-button:hover {
-  color: var(--primary-light);
-}
-
-.back-button:hover::before {
-  transform: translateY(-50%) scale(1.2);
-}
-
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 0.9375rem;
-}
-
-.image-card {
-  border-radius: 0.9375rem;
-  overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
-  position: relative;
-  cursor: pointer;
-}
-
-.image-card::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to top, oklch(0 0 0 / 0.5), transparent);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.image-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0.625rem 1.25rem oklch(0 0 0 / 0.2);
-}
-
-.image-card:hover::after {
-  opacity: 1;
-}
-
-.image-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Responsive Design */
-@media (min-width: 36rem) {
-  .image-grid {
-    grid-template-columns: repeat(2, 1fr);
+/* Responsive adjustments */
+@media (min-width: 48rem) {
+  .App {
+    max-width: 45rem;
+    padding: 2rem;
   }
-}
 
-@media (min-width: 62rem) {
-  .image-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .link-button {
+    padding: 1.125rem 1.5rem;
   }
-}
-
-/* Modal Styles */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: oklch(0 0 0 / 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  opacity: 0;
-  animation: fadeIn 0.3s forwards;
-}
-
-.modal-content {
-  position: relative;
-  max-width: 90vw;
-  max-height: 90vh;
-  transform: scale(0.8);
-  animation: zoomIn 0.3s forwards;
-}
-
-.modal-content img {
-  width: 100%;
-  height: auto;
-  max-height: 90vh;
-  border-radius: 0.625rem;
-}
-
-.close-button {
-  position: absolute;
-  top: -2.5rem;
-  right: 0;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 2.5rem;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.close-button:hover {
-  transform: scale(1.2);
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes zoomIn {
-  to {
-    transform: scale(1);
-  }
-}
-
-/* Care Page Styles */
-.care-container {
-  text-align: left;
-  width: 100%;
-  max-width: 42.5rem;
-  margin: 0 auto;
-}
-
-.care-container h2 {
-  text-align: center;
-  margin-bottom: 1.875rem;
-  font-size: 1.8rem;
-}
-
-.care-section {
-  margin-bottom: 1.875rem;
-}
-
-.care-section h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.9375rem;
-  padding-bottom: 0.625rem;
-  border-bottom: 0.0625rem solid oklch(0.469 0.2296 264.55 / 0.5);
-}
-
-.dark .care-section h3 {
-  border-bottom-color: oklch(0.469 0.2296 264.55 / 0.8);
-}
-
-.care-section ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.care-section li {
-  margin-bottom: 0.625rem;
-  padding-left: 1.25rem;
-  position: relative;
-}
-
-.care-section li::before {
-  content: "✨";
-  position: absolute;
-  left: 0;
-  top: 0;
 }
