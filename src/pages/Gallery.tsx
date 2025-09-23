@@ -2,25 +2,25 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const images = [
-  "img1.JPG",
-  "img2.JPG",
-  "img3.JPG",
-  "img4.JPG",
-  "img5.JPG",
-  "img6.JPG",
-  "img7.JPG",
-  "img8.JPG",
-  "img9.JPG",
-  "img10.JPG",
-  "img11.JPG",
-  "img12.JPG",
-  "img13.JPG",
-  "img14.JPG",
-  "img15.JPG",
-  "img16.JPG",
-  "img17.JPG",
-  "img18.JPG",
-  "img19.JPG",
+  "img1.webp",
+  "img2.webp",
+  "img3.webp",
+  "img4.webp",
+  "img5.webp",
+  "img6.webp",
+  "img7.webp",
+  "img8.webp",
+  "img9.webp",
+  "img10.webp",
+  "img11.webp",
+  "img12.webp",
+  "img13.webp",
+  "img14.webp",
+  "img15.webp",
+  "img16.webp",
+  "img17.webp",
+  "img18.webp",
+  "img19.webp",
 ];
 
 function Gallery() {
@@ -36,19 +36,17 @@ function Gallery() {
 
   return (
     <div className="gallery-container">
-      <Link to="/" className="back-button">
+      <Link to="/" role="link" className="back-button">
         Voltar
       </Link>
       <div className="image-grid">
         {images.map((image) => (
-          <div
-            key={image}
-            className="image-card"
-            onClick={() => openModal(image)}
-          >
+          <div key={image} className="image-card" onClick={() => openModal(image)}>
             <img
-              src={new URL(`../assets/${image}`, import.meta.url).href}
+              loading="lazy"
+              role="img"
               alt={`Imagem de Portfólio: ${image}`}
+              src={new URL(`../assets/webp/${image}`, import.meta.url).href}
             />
           </div>
         ))}
@@ -57,12 +55,13 @@ function Gallery() {
       {selectedImage && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="close-button" onClick={closeModal}>
+            <button role="button" className="close-button" onClick={closeModal}>
               &times;
             </button>
             <img
-              src={new URL(`../assets/${selectedImage}`, import.meta.url).href}
+              role="img"
               alt={`Imagem de Portfólio: ${selectedImage}`}
+              src={new URL(`../assets/webp/${selectedImage}`, import.meta.url).href}
             />
           </div>
         </div>

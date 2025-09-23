@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Gallery from "./pages/Gallery";
-import Home from "./pages/Home";
-import Care from "./pages/Care";
+import Spinner from "./pages/Spinner";
+
+const Home = lazy(() => import("./pages/Home"));
+const Gallery = lazy(() => import("./pages/Gallery"));
+const Care = lazy(() => import("./pages/Care"));
 
 function AnimatedBackground() {
   return (
@@ -31,13 +33,17 @@ function App() {
       <AnimatedBackground />
       <div className={`App ${theme}`}>
         <div className="theme-switcher">
-          <button onClick={toggleTheme}>{theme === "light" ? "🌙" : "☀️"}</button>
+          <button role="button" onClick={toggleTheme}>
+            {theme === "light" ? "🌙" : "☀️"}
+          </button>
         </div>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/care" element={<Care />} />
-        </Routes>
+        <Suspense fallback={<Spinner />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/care" element={<Care />} />
+          </Routes>
+        </Suspense>
       </div>
     </>
   );

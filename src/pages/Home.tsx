@@ -1,3 +1,4 @@
+import { FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logo from "/rounded-logo.svg";
 
@@ -18,6 +19,14 @@ function Home() {
         >
           Agendamentos e Orçamentos
         </a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://wa.me/5542998154590"
+          className="link-button whatsapp-button"
+        >
+          <FaWhatsapp /> WhatsApp
+        </a>
         <Link to="/gallery" className="link-button">
           Jóias
         </Link>
@@ -35,7 +44,7 @@ function Home() {
             rel="noopener noreferrer"
             href="https://www.instagram.com/fabio_ghizoni"
           >
-            Fábio Ghizoni
+            Fábio Henrique
           </a>
           :{" "}
           <a

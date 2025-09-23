@@ -189,6 +189,32 @@ main {
   overflow: hidden;
 }
 
+.link-button.whatsapp-button {
+  background-color: oklch(0.761 0.2015 149.74);
+}
+
+/* Garante que o botão permaneça verde no tema claro */
+.light .link-button.whatsapp-button {
+  background-color: oklch(0.761 0.2015 149.74);
+}
+
+/* Mantém o fundo verde no hover e adiciona o box-shadow */
+.link-button.whatsapp-button:hover {
+  background-color: oklch(0.761 0.2015 149.74);
+  box-shadow: 0 0.375rem 1.25rem oklch(0.761 0.2015 149.74 / 0.5);
+}
+
+.whatsapp-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.whatsapp-button svg {
+  font-size: 1.5rem;
+}
+
 .light .link-button {
   background-color: var(--primary-light);
   color: var(--white);
