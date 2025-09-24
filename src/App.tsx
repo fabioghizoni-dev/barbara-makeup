@@ -43,17 +43,23 @@ function App() {
       {theme === "light" ? <LightThemeBackground /> : <DarkThemeBackground />}
       <div className={`App ${theme} ${isGalleryPage ? "gallery-page" : ""}`}>
         <div className="theme-switcher">
-          <button role="button" onClick={toggleTheme}>
+          <button
+            role="button"
+            onClick={toggleTheme}
+            aria-label={`Mudar para o tema ${theme === "light" ? "escuro" : "claro"}`}
+          >
             {theme === "light" ? "🌙" : "☀️"}
           </button>
         </div>
-        <Suspense fallback={<Spinner />}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/care" element={<Care />} />
-          </Routes>
-        </Suspense>
+        <main>
+          <Suspense fallback={<Spinner />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/care" element={<Care />} />
+            </Routes>
+          </Suspense>
+        </main>
       </div>
     </>
   );

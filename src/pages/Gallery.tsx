@@ -48,6 +48,8 @@ function Gallery() {
               role="img"
               alt={`Imagem de Portfólio: ${image}`}
               src={new URL(`../assets/webp/${image}`, import.meta.url).href}
+              width="300"
+              height="300"
             />
           </div>
         ))}
@@ -56,13 +58,20 @@ function Gallery() {
       {selectedImage && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button role="button" className="close-button" onClick={closeModal}>
+            <button
+              role="button"
+              className="close-button"
+              onClick={closeModal}
+              aria-label="Fechar imagem"
+            >
               &times;
             </button>
             <img
               role="img"
               alt={`Imagem de Portfólio: ${selectedImage}`}
               src={new URL(`../assets/webp/${selectedImage}`, import.meta.url).href}
+              width="600"
+              height="600"
             />
           </div>
         </div>

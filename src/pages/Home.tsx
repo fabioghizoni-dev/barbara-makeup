@@ -6,7 +6,7 @@ function Home() {
   return (
     <>
       <header>
-        <img src={logo} className="logo" alt="logo" />
+        <img src={logo} className="logo" alt="logo" width="120" height="120" />
         <h1>Bárbara Vitória</h1>
         <p>Body Piercer & Maquiadora</p>
       </header>
