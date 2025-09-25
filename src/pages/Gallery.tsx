@@ -44,12 +44,12 @@ function Gallery() {
         {images.map((image) => (
           <div key={image} className="image-card" onClick={() => openModal(image)}>
             <img
-              loading="lazy"
               role="img"
-              alt={`Imagem de Portfólio: ${image}`}
-              src={new URL(`../assets/webp/${image}`, import.meta.url).href}
               width="300"
               height="300"
+              loading="lazy"
+              src={`/webp/${image}`}
+              alt={`Imagem de Portfólio: ${image}`}
             />
           </div>
         ))}
@@ -58,20 +58,15 @@ function Gallery() {
       {selectedImage && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button
-              role="button"
-              className="close-button"
-              onClick={closeModal}
-              aria-label="Fechar imagem"
-            >
+            <button role="button" className="close-button" onClick={closeModal} aria-label="Fechar imagem">
               &times;
             </button>
             <img
               role="img"
-              alt={`Imagem de Portfólio: ${selectedImage}`}
-              src={new URL(`../assets/webp/${selectedImage}`, import.meta.url).href}
               width="600"
               height="600"
+              src={`/webp/${selectedImage}`}
+              alt={`Imagem de Portfólio: ${selectedImage}`}
             />
           </div>
         </div>

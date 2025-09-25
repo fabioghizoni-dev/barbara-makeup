@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Spinner from "./pages/Spinner";
+import ScrollToTop from "./ScrollToTop";
 import "./styles/App.css";
 
 const Home = lazy(() => import("./pages/Home"));
@@ -47,6 +48,7 @@ function App() {
 
   return (
     <>
+      <ScrollToTop />
       {theme === "light" ? <LightThemeBackground /> : <DarkThemeBackground />}
       <div className={`App ${theme} ${isGalleryPage ? "gallery-page" : ""}`}>
         <div className="theme-switcher">
