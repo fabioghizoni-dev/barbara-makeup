@@ -34,6 +34,13 @@ function App() {
     document.body.className = theme;
   }, [theme]);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      document.body.classList.add("background-loaded");
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   const toggleTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };

@@ -63,8 +63,11 @@ body.dark {
   opacity: 1;
 }
 
+.background-loaded .stars {
+  background: black url(/stars.webp) repeat;
+}
+
 .stars {
-  background: black url(/stars.png) repeat;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -74,17 +77,20 @@ body.dark {
   z-index: 0;
 }
 
+.background-loaded .twinkling {
+  background: transparent url(/twinkling.webp) repeat;
+  background-size: 62.5rem 62.5rem;
+  animation: move-background 70s linear infinite;
+}
+
 .twinkling {
   width: 625rem;
   height: 100%;
-  background: transparent url(/twinkling.png) repeat;
-  background-size: 62.5rem 62.5rem;
   position: absolute;
   right: 0;
   top: 0;
   bottom: 0;
   z-index: 1;
-  animation: move-background 70s linear infinite;
   will-change: transform;
 }
 
@@ -100,33 +106,37 @@ body.dark {
   z-index: 0;
 }
 
+.background-loaded .dark-theme .clouds {
+  background: transparent url(/clouds_repeat.webp) repeat;
+  background-size: 62.5rem 62.5rem;
+  animation: move-background 150s linear infinite;
+}
+
 .dark-theme .clouds {
   width: 625rem;
   height: 100%;
-  background: transparent
-    url(/clouds_repeat.png) repeat;
-  background-size: 62.5rem 62.5rem;
   position: absolute;
   right: 0;
   top: 0;
   bottom: 0;
   z-index: 2;
-  animation: move-background 150s linear infinite;
   will-change: transform;
+}
+
+.background-loaded .light-theme .clouds {
+  background: transparent url(/clouds_repeat.webp) repeat;
+  background-size: 62.5rem 62.5rem;
+  animation: move-background 150s linear infinite;
 }
 
 .light-theme .clouds {
   width: 625rem;
   height: 100%;
-  background: transparent
-    url(/clouds_repeat.png) repeat;
-  background-size: 62.5rem 62.5rem;
   position: absolute;
   right: 0;
   top: 0;
   bottom: 0;
   z-index: 2;
-  animation: move-background 150s linear infinite;
   filter: invert(1) brightness(1.2);
   will-change: transform;
 }
